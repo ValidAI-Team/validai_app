@@ -1,0 +1,118 @@
+/* ====== ESTILOS GENERALES ====== */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ====== HEADER ====== */
+.header {
+  background-color: #8e7cc3;
+  color: #fff;
+  padding: 1rem 2rem;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ====== HERO ====== */
+.hero {
+  background: linear-gradient(135deg, #8e7cc3, #93c47d);
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  max-width: 600px;
+  margin: 0 auto 20px;
+  font-size: 1.1rem;
+}
+
+.cta-btn {
+  background-color: #fff;
+  color: #8e7cc3;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cta-btn:hover {
+  background-color: #93c47d;
+  color: #fff;
+}
+
+/* ====== FEATURES ====== */
+.features {
+  background-color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 2rem;
+  color: #8e7cc3;
+  margin-bottom: 40px;
+}
+
+.features-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.feature {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  width: 280px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.feature i {
+  font-size: 2.5rem;
+  color: #93c47d;
+  margin-bottom: 10px;
+}
+
+/* ====== FOOTER ====== */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
