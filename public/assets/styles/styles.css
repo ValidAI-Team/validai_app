@@ -1,235 +1,173 @@
-/* =========================================================
-   ESTILOS BASE - VALIDAI LANDING PAGE
-   ========================================================= */
 :root {
-  --primary: #8e7cc3;
-  --secondary: #93c47d;
-  --text-dark: #333;
-  --text-light: #fff;
-  --bg-light: #f8f9fb;
-  --bg-dark: #222;
-  --radius: 12px;
-  --transition: all 0.3s ease;
+  --purple: #8e7cc3;
+  --green: #93c47d;
+  --bg: #f8f8fc;
+  --text-dark: #2e2e2e;
+  --text-light: #777;
+  --white: #fff;
+  --radius: 16px;
+  --shadow: 0 8px 20px rgba(0,0,0,0.08);
+  --gradient: linear-gradient(135deg, var(--purple), var(--green));
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg);
   color: var(--text-dark);
-  background-color: var(--bg-light);
   line-height: 1.6;
-  scroll-behavior: smooth;
 }
 
-/* =========================================================
-   HEADER
-   ========================================================= */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
+/* ======================================================
+   BOTONES
+   ====================================================== */
+.btn {
+  background: var(--gradient);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+/* ======================================================
+   LOGIN PAGE
+   ====================================================== */
+.login-body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)),
+    url('../images/hero-bg.jpg') center/cover no-repeat;
+  backdrop-filter: blur(3px);
+  animation: fadeIn 1s ease;
+}
+
+.login-container {
+  background: var(--white);
+  width: 350px;
+  padding: 45px;
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: var(--shadow);
+  animation: fadeInUp 0.8s ease;
+}
+
+.login-container .logo {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.login-container h2 {
+  color: var(--purple);
+  margin-bottom: 20px;
+}
+
+.login-container input {
   width: 100%;
-  background-color: var(--primary);
-  color: var(--text-light);
-  z-index: 100;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  transition: 0.3s;
 }
 
-.header .container {
+.login-container input:focus {
+  border-color: var(--purple);
+  outline: none;
+}
+
+.login-container .note {
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.login-container a {
+  color: var(--green);
+  text-decoration: none;
+}
+
+.login-container a:hover {
+  text-decoration: underline;
+}
+
+/* ======================================================
+   NAVBAR
+   ====================================================== */
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  max-width: 1200px;
-  margin: auto;
+  background: var(--white);
+  padding: 15px 40px;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-.logo {
-  height: 45px;
-  transition: transform 0.3s;
-}
-
-.logo:hover {
-  transform: scale(1.05);
-}
-
-nav ul {
-  list-style: none;
+.logo-section {
   display: flex;
-  gap: 1.5rem;
+  align-items: center;
+  gap: 10px;
 }
 
-nav a {
-  color: var(--text-light);
+.logo-small {
+  width: 45px;
+}
+
+.navbar h1 {
+  color: var(--purple);
+  font-size: 1.4rem;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--text-dark);
+  margin-left: 25px;
   font-weight: 500;
-  transition: var(--transition);
+  transition: 0.2s;
 }
 
-nav a:hover {
-  color: var(--secondary);
+.navbar a:hover {
+  color: var(--green);
 }
 
-/* =========================================================
-   HERO SECTION
-   ========================================================= */
-.hero {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: var(--text-light);
-  text-align: center;
-  padding: 160px 20px 100px;
-  margin-top: 70px;
-}
-
-.hero-content h1 {
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
-  animation: fadeInDown 1s ease-in-out;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  max-width: 700px;
-  margin: 0 auto 2rem;
-  animation: fadeInUp 1s ease-in-out;
-}
-
-.cta-btn {
-  background-color: var(--text-light);
-  color: var(--primary);
-  border: none;
-  padding: 14px 32px;
-  font-size: 1rem;
-  border-radius: var(--radius);
-  cursor: pointer;
-  transition: var(--transition);
-  font-weight: 600;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.cta-btn:hover {
-  background-color: var(--secondary);
-  color: var(--text-light);
-  transform: translateY(-2px);
-}
-
-/* =========================================================
-   FEATURES SECTION
-   ========================================================= */
-.features {
-  background-color: #fff;
-  padding: 80px 20px;
-  text-align: center;
-}
-
-.features h2 {
-  font-size: 2rem;
-  color: var(--primary);
-  margin-bottom: 3rem;
-  position: relative;
-}
-
-.features h2::after {
-  content: "";
-  display: block;
-  width: 80px;
-  height: 4px;
-  background: var(--secondary);
-  margin: 10px auto;
-  border-radius: 2px;
-}
-
-.features-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.feature {
-  background-color: var(--bg-light);
-  padding: 2rem;
-  border-radius: var(--radius);
-  width: 300px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  transition: var(--transition);
-}
-
-.feature:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
-}
-
-.feature i {
-  font-size: 2.5rem;
-  color: var(--secondary);
-  margin-bottom: 1rem;
-}
-
-.feature h3 {
-  color: var(--primary);
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-}
-
-.feature p {
-  font-size: 0.95rem;
-  color: #555;
-}
-
-/* =========================================================
+/* ======================================================
    FOOTER
-   ========================================================= */
+   ====================================================== */
 footer {
-  background-color: var(--bg-dark);
-  color: var(--text-light);
+  background: var(--purple);
+  color: white;
   text-align: center;
-  padding: 1.5rem 1rem;
+  padding: 15px;
   font-size: 0.9rem;
-  margin-top: 60px;
 }
 
-footer p {
-  opacity: 0.8;
-}
-
-/* =========================================================
+/* ======================================================
    ANIMACIONES
-   ========================================================= */
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
+   ====================================================== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-/* =========================================================
-   RESPONSIVE DESIGN
-   ========================================================= */
-@media (max-width: 900px) {
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-  }
-
-  .features-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .feature {
-    width: 90%;
-  }
 }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ValidAI | Análisis de Negocio</title>
+  <link rel="icon" href="./favicon.ico">
+  <link rel="stylesheet" href="./assets/styles/styles.css">
+  <link rel="stylesheet" href="./assets/styles/analysis.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo-section">
+      <img src="./assets/images/logo.png" alt="ValidAI" class="logo-small">
+      <h1>ValidAI</h1>
+    </div>
+    <nav>
+      <a href="dashboard.html">Inicio</a>
+      <a href="#" id="logout">Cerrar sesión</a>
+    </nav>
+  </header>
+
+  <section class="analysis">
+    <h2>Analiza tu Idea de Negocio 💡</h2>
+    <form id="analysis-form">
+      <input type="text" id="idea" placeholder="Describe tu idea (ej: cafetería virtual)" required>
+      <select id="sector">
+        <option value="">Selecciona sector</option>
+        <option>Alimentos</option>
+        <option>Tecnología</option>
+        <option>Educación</option>
+        <option>Salud</option>
+      </select>
+      <button type="submit" class="btn">Analizar</button>
+    </form>
+
+    <div id="result" class="result-box"></div>
+  </section>
+
+  <footer>
+    <p>© 2025 ValidAI - Asistente de validación inteligente</p>
+  </footer>
+
+  <script src="./assets/scripts/analysis.js"></script>
+</body>
+</html>

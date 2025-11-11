@@ -1,60 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ValidAI - Valida tus ideas con Inteligencia Artificial</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ValidAI | Iniciar Sesión</title>
+  <link rel="icon" href="./favicon.ico">
   <link rel="stylesheet" href="./assets/styles/styles.css">
-  <link rel="icon" href="./favicon.ico" />
-  <script defer src="./assets/scripts/main.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
-<body>
-  <header class="header">
-    <div class="container">
-      <img src="./assets/images/logo.png" alt="ValidAI logo" class="logo">
-      <nav>
-        <ul>
-          <li><a href="#about">Sobre Nosotros</a></li>
-          <li><a href="#features">Características</a></li>
-          <li><a href="#contact">Contacto</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<body class="login-body">
+  <div class="login-container">
+    <img src="./assets/images/logo.png" alt="ValidAI" class="logo">
+    <h2>Iniciar Sesión</h2>
+    <form id="login-form">
+      <input type="text" id="username" placeholder="Usuario" required>
+      <input type="password" id="password" placeholder="Contraseña" required>
+      <button type="submit" class="btn">Ingresar</button>
+    </form>
+    <p class="note">¿No tienes cuenta? <a href="#">Regístrate gratis</a></p>
+  </div>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Valida tus ideas con Inteligencia Artificial</h1>
-      <p>ValidAI te ayuda a analizar, comparar y validar tus ideas de negocio con datos y predicciones precisas.</p>
-      <button class="cta-btn">Probar Gratis</button>
-    </div>
-  </section>
-
-  <section id="features" class="features">
-    <h2>Características principales</h2>
-    <div class="features-container">
-      <div class="feature">
-        <i class="fas fa-lightbulb"></i>
-        <h3>Análisis de ideas</h3>
-        <p>Evalúa el potencial de tu proyecto mediante algoritmos de inteligencia artificial entrenados en modelos reales.</p>
-      </div>
-      <div class="feature">
-        <i class="fas fa-chart-line"></i>
-        <h3>Resultados visuales</h3>
-        <p>Obtén informes con métricas claras para tomar decisiones estratégicas antes de invertir.</p>
-      </div>
-      <div class="feature">
-        <i class="fas fa-users"></i>
-        <h3>Colaboración</h3>
-        <p>Comparte resultados con tu equipo o mentor y mejora tu idea en conjunto.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 ValidAI Team — Todos los derechos reservados</p>
-  </footer>
+  <script src="./assets/scripts/main.js"></script>
 </body>
 </html>

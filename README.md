@@ -5,9 +5,11 @@ ValidAI es una plataforma que ayuda a validar ideas de negocio utilizando inteli
 Permite analizar conceptos, detectar oportunidades y mejorar la toma de decisiones en etapas tempranas.
 
 ## 👥 Autores
-- Luis Ttito  
-- [Nombre del compañero 1]  
-- [Nombre del compañero 2]
+• Ttito Quispe, Luis David Ing. de Sistemas U20221G280
+• Grajeda Rossi Diego Aaron Ing. de Sistemas U202410548
+• Gutierrez Huaman,Adriano Ing. de Sistemas U202412091
+• Condor Sandoval Jean Pierre Ing. de Software U202418405
+• Castro Bustamante, Sebastián Jose Ing. de Sistemas U20221C296
 
 ## 🎯 Segmento objetivo
 - Emprendedores y estudiantes que buscan validar ideas antes de invertir.
