@@ -1,66 +1,555 @@
 /* ======================================================
-   DASHBOARD PAGE - VALIDAI
+   DASHBOARD MEJORADO - VALIDAI
    ====================================================== */
 
 .dashboard {
-  padding: 70px 20px;
-  text-align: center;
+  padding: 30px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
   animation: fadeIn 0.6s ease;
 }
 
-.dashboard h2 {
-  font-size: 2rem;
-  color: var(--purple);
-  margin-bottom: 10px;
-}
-
-.dashboard p {
-  color: var(--text-light);
-  max-width: 700px;
-  margin: 0 auto 40px;
-  font-size: 1rem;
-}
-
-.card-grid {
+/* Header del Dashboard */
+.dashboard-header {
   display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
+  gap: 20px;
 }
 
-.card {
+.welcome-section h2 {
+  font-size: 2.2rem;
+  color: var(--purple);
+  margin-bottom: 8px;
+}
+
+.welcome-section p {
+  color: var(--text-light);
+  font-size: 1.1rem;
+  max-width: 600px;
+}
+
+.quick-stats {
+  display: flex;
+  gap: 20px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
   background: var(--white);
+  padding: 20px;
   border-radius: var(--radius);
-  width: 300px;
-  padding: 30px;
   box-shadow: var(--shadow);
-  transition: 0.3s;
+  min-width: 180px;
+  transition: transform 0.3s ease;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+.stat-card:hover {
+  transform: translateY(-3px);
 }
 
-.card h3 {
-  color: var(--green);
-  margin-bottom: 10px;
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--gradient);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.stat-icon.success {
+  background: linear-gradient(135deg, #00C853, #64DD17);
+}
+
+.stat-number {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+/* Grid Principal */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.grid-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Acciones Rápidas */
+.quick-actions {
+  background: var(--white);
+  padding: 25px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.quick-actions h3 {
+  color: var(--purple);
+  margin-bottom: 20px;
   font-size: 1.3rem;
 }
 
-.card p {
-  color: var(--text-light);
-  font-size: 0.95rem;
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  gap: 12px;
+}
+
+.action-btn.primary {
+  background: var(--gradient);
+  color: white;
+}
+
+.action-btn.secondary {
+  background: #f8f9fa;
+  color: var(--text-dark);
+  border: 2px solid #e9ecef;
+}
+
+.action-btn.tertiary {
+  background: white;
+  color: var(--purple);
+  border: 2px solid var(--purple);
+}
+
+.action-btn:hover:not(.coming-soon) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Lista de Ideas */
+.recent-ideas {
+  background: var(--white);
+  padding: 25px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
 }
 
-@media (max-width: 768px) {
-  .card-grid {
-    flex-direction: column;
-    align-items: center;
-  }
+.section-header h3 {
+  color: var(--purple);
+  font-size: 1.3rem;
+}
 
-  .card {
-    width: 90%;
+.view-all {
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.view-all:hover:not(.coming-soon) {
+  text-decoration: underline;
+}
+
+.ideas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.idea-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border-left: 4px solid #6c757d;
+  transition: all 0.3s ease;
+}
+
+.idea-item:hover {
+  background: #e9ecef;
+  transform: translateX(5px);
+}
+
+.idea-item.success {
+  border-left-color: #00C853;
+}
+
+.idea-item.warning {
+  border-left-color: #FF9800;
+}
+
+.idea-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--white);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: var(--purple);
+}
+
+.idea-content {
+  flex: 1;
+}
+
+.idea-content h4 {
+  color: var(--text-dark);
+  margin-bottom: 4px;
+  font-size: 1rem;
+}
+
+.idea-content p {
+  color: var(--text-light);
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+.idea-date {
+  font-size: 0.75rem;
+  color: #6c757d;
+}
+
+.idea-status {
+  color: #00C853;
+}
+
+.idea-status .fa-exclamation-triangle {
+  color: #FF9800;
+}
+
+/* Métricas del Mercado */
+.market-metrics {
+  background: var(--white);
+  padding: 25px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.market-metrics h3 {
+  color: var(--purple);
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+}
+
+.metric-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.metric-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.metric-trend {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.2);
+}
+
+.metric-trend.up {
+  color: #00C853;
+}
+
+.metric-trend.down {
+  color: #f44336;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.metric-label {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.metric-subtitle {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+/* Herramientas de Análisis */
+.analysis-tools {
+  background: var(--white);
+  padding: 25px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.analysis-tools h3 {
+  color: var(--purple);
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.tool-card {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.tool-card:hover:not(.coming-soon) {
+  background: var(--white);
+  border-color: var(--purple);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.tool-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--gradient);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.tool-card h4 {
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.tool-card p {
+  color: var(--text-light);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.tool-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--green);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* Panel de Notificaciones */
+.notifications-panel {
+  background: var(--white);
+  padding: 25px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.notification-badge {
+  background: #f44336;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.notifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.notification-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 3px solid transparent;
+}
+
+.notification-item.new {
+  border-left-color: var(--purple);
+  background: #f0f4ff;
+}
+
+.notification-icon {
+  width: 30px;
+  height: 30px;
+  background: var(--white);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  color: var(--purple);
+  font-size: 0.9rem;
+}
+
+.notification-content {
+  flex: 1;
+}
+
+.notification-content p {
+  color: var(--text-dark);
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+.notification-time {
+  font-size: 0.75rem;
+  color: #6c757d;
+}
+
+/* Sección Educativa */
+.educational-section {
+  background: var(--white);
+  padding: 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-top: 20px;
+}
+
+.educational-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.edu-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  position: relative;
+}
+
+.edu-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255,255,255,0.2);
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.edu-card h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.edu-card p {
+  opacity: 0.9;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.edu-btn {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.edu-btn:hover:not(.coming-soon) {
+  background: rgba(255,255,255,0.3);
+}
+
+/* Círculo de Progreso */
+.progress-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: conic-gradient(var(--green) 45%, #e9ecef 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.idea-item,
+.tool-card,
+.metric-card {
+  animation: fadeInUp 0.6s ease;
 }

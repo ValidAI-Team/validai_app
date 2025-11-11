@@ -4,20 +4,96 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ValidAI | Análisis de Negocio</title>
-  <link rel="icon" href="./favicon.ico">
+  <link rel="icon" href="./assets/images/logo.png">
   <link rel="stylesheet" href="./assets/styles/styles.css">
   <link rel="stylesheet" href="./assets/styles/analysis.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+  <!-- PROTECCIÓN DE RUTA - VERIFICAR SI ESTÁ LOGUEADO -->
+  <script>
+    if (!localStorage.getItem("loggedIn")) {
+      window.location.href = "index.html";
+    }
+  </script>
+
+  <!-- Menú de Navegación Mejorado -->
   <header class="navbar">
-    <div class="logo-section">
-      <img src="./assets/images/logo.png" alt="ValidAI" class="logo-small">
-      <h1>ValidAI</h1>
+    <div class="nav-container">
+      <!-- Logo y marca -->
+      <div class="logo-section">
+        <img src="./assets/images/logo.png" alt="ValidAI" class="logo-small">
+        <div class="brand-text">
+          <h1>ValidAI</h1>
+          <span class="brand-subtitle">Asistente Inteligente</span>
+        </div>
+      </div>
+
+      <!-- Navegación principal -->
+      <nav class="main-nav">
+        <a href="dashboard.html" class="nav-link">
+          <i class="fas fa-home"></i>
+          <span>Inicio</span>
+          <div class="nav-indicator"></div>
+        </a>
+        <a href="analysis.html" class="nav-link nav-active">
+          <i class="fas fa-chart-bar"></i>
+          <span>Análisis</span>
+          <div class="nav-indicator"></div>
+        </a>
+        <a href="#" class="nav-link coming-soon">
+          <i class="fas fa-file-alt"></i>
+          <span>Reportes</span>
+          <div class="nav-indicator"></div>
+          <span class="nav-badge">Próximo</span>
+        </a>
+        <a href="#" class="nav-link coming-soon">
+          <i class="fas fa-play-circle"></i>
+          <span>Simulaciones</span>
+          <div class="nav-indicator"></div>
+        </a>
+      </nav>
+
+      <!-- Menú de usuario -->
+      <div class="user-menu">
+        <div class="user-avatar">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="user-info">
+          <span class="user-name" id="username-nav">Emprendedor</span>
+          <span class="user-role">Usuario Premium</span>
+        </div>
+        <div class="dropdown-arrow">
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        
+        <!-- Menú desplegable -->
+        <div class="dropdown-menu">
+          <a href="dashboard.html" class="dropdown-item">
+            <i class="fas fa-user-circle"></i>
+            Mi Perfil
+          </a>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-cog"></i>
+            Configuración
+          </a>
+          <a href="#" class="dropdown-item">
+            <i class="fas fa-question-circle"></i>
+            Ayuda
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item logout" id="logout">
+            <i class="fas fa-sign-out-alt"></i>
+            Cerrar Sesión
+          </a>
+        </div>
+      </div>
+
+      <!-- Menú móvil -->
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
-    <nav>
-      <a href="dashboard.html">Inicio</a>
-      <a href="#" id="logout">Cerrar sesión</a>
-    </nav>
   </header>
 
   <section class="analysis">
@@ -40,7 +116,6 @@
   <footer>
     <p>© 2025 ValidAI - Asistente de validación inteligente</p>
   </footer>
-
   <script src="./assets/scripts/analysis.js"></script>
 </body>
 </html>
