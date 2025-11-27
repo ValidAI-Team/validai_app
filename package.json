@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "msnodesqlv8": "^5.1.1",
+    "mssql": "^12.1.0"
+  },
+  "name": "validai_app",
+  "description": "ValidAI es una plataforma que ayuda a validar ideas de negocio utilizando inteligencia artificial.  \r Permite analizar conceptos, detectar oportunidades y mejorar la toma de decisiones en etapas tempranas.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

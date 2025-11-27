@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ValidAI | Reportes</title>
+  <link rel="icon" href="./assets/images/logo.png">
+  <link rel="stylesheet" href="./assets/styles/styles.css">
+  <link rel="stylesheet" href="./assets/styles/reports.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- PROTECCIÓN -->
+  <script>
+    if (!localStorage.getItem("loggedIn")) {
+      window.location.href = "index.html";
+    }
+  </script>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-container">
+
+      <div class="logo-section">
+        <img src="./assets/images/logo.png" class="logo-small">
+        <div class="brand-text">
+          <h1>ValidAI</h1>
+          <span class="brand-subtitle">Asistente Inteligente</span>
+        </div>
+      </div>
+
+      <nav class="main-nav">
+        <a href="dashboard.html" class="nav-link">
+          <i class="fas fa-home"></i>
+          <span>Inicio</span>
+          <div class="nav-indicator"></div>
+        </a>
+        <a href="analysis.html" class="nav-link">
+          <i class="fas fa-chart-bar"></i>
+          <span>Análisis</span>
+          <div class="nav-indicator"></div>
+        </a>
+        <a href="reports.html" class="nav-link nav-active">
+          <i class="fas fa-file-alt"></i>
+          <span>Reportes</span>
+          <div class="nav-indicator"></div>
+        </a>
+        <a href="simulations.html" class="nav-link">
+          <i class="fas fa-play-circle"></i>
+          <span>Simulaciones</span>
+          <div class="nav-indicator"></div>
+        </a>
+      </nav>
+
+      <div class="user-menu">
+        <div class="user-avatar"><i class="fas fa-user"></i></div>
+        <div class="user-info">
+          <span class="user-name" id="username-nav">Emprendedor</span>
+          <span class="user-role">Usuario Premium</span>
+        </div>
+        <div class="dropdown-arrow"><i class="fas fa-chevron-down"></i></div>
+
+        <div class="dropdown-menu">
+          <a href="dashboard.html" class="dropdown-item"><i class="fas fa-user-circle"></i> Mi Perfil</a>
+          <a href="#" class="dropdown-item"><i class="fas fa-cog"></i> Configuración</a>
+          <a href="#" class="dropdown-item"><i class="fas fa-question-circle"></i> Ayuda</a>
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item logout" id="logout"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <section class="reports">
+    <h2>Generador de Reportes 📄</h2>
+    <p class="subtitle">Selecciona el tipo de reporte que deseas descargar</p>
+
+    <div class="reports-grid">
+
+      <!-- Reporte Viabilidad -->
+      <div class="report-card">
+        <div class="icon"><i class="fas fa-clipboard-check"></i></div>
+        <h3>Reporte de Viabilidad</h3>
+        <p>Análisis completo sobre el potencial del negocio.</p>
+        <button class="btn" onclick="downloadReport('viabilidad')">Descargar</button>
+      </div>
+
+      <!-- Reporte Resumido -->
+      <div class="report-card">
+        <div class="icon"><i class="fas fa-file-contract"></i></div>
+        <h3>Reporte Resumido</h3>
+        <p>Resumen ejecutivo listo para presentar.</p>
+        <button class="btn" onclick="downloadReport('resumen')">Descargar</button>
+      </div>
+
+      <!-- Reporte Dashboard -->
+      <div class="report-card">
+        <div class="icon"><i class="fas fa-chart-pie"></i></div>
+        <h3>Reporte Dashboard</h3>
+        <p>Visualización gráfica del análisis generado.</p>
+        <button class="btn" onclick="downloadReport('dashboard')">Descargar</button>
+      </div>
+
+      <!-- Reporte Académico -->
+      <div class="report-card">
+        <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+        <h3>Reporte Académico</h3>
+        <p>Formato académico UPC listo para envío.</p>
+        <button class="btn" onclick="downloadReport('academico')">Descargar</button>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 ValidAI</p>
+  </footer>
+
+  <script src="./assets/scripts/reports.js"></script>
+</body>
+</html>
