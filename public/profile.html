@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ValidAI | Mi Perfil</title>
+    <link rel="icon" href="./assets/images/logo.png">
+    <!-- CSS en orden correcto -->
+    <link rel="stylesheet" href="./assets/styles/styles.css">
+    <link rel="stylesheet" href="./assets/styles/profile.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="profile-page">
+    <!-- Script de verificación de autenticación -->
+    <script>
+        const token = localStorage.getItem('authToken');
+        const loggedIn = localStorage.getItem('loggedIn');
+        
+        if (!token || loggedIn !== 'true') {
+            window.location.href = 'index.html';
+        }
+        
+        // Cargar datos del usuario
+        window.userData = JSON.parse(localStorage.getItem('userData') || 'null');
+        
+        // Si no hay datos de usuario, redirigir
+        if (!window.userData) {
+            window.location.href = 'index.html';
+        }
+    </script>
+
+    <!-- Navbar -->
+    <!-- Navbar basada en styles.css -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo Section -->
+            <div class="logo-section">
+                <img src="./assets/images/logo.png" alt="ValidAI" class="logo-small">
+                <div class="brand-text">
+                    <h1>ValidAI</h1>
+                    <div class="brand-subtitle">Asistente de validación inteligente</div>
+                </div>
+            </div>
+
+            <!-- Main Navigation -->
+            <div class="main-nav">
+                <a href="dashboard.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                    <div class="nav-indicator"></div>
+                </a>
+                <a href="analysis.html" class="nav-link">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Análisis</span>
+                    <div class="nav-indicator"></div>
+                </a>
+                <a href="reports.html" class="nav-link">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Reportes</span>
+                    <div class="nav-indicator"></div>
+                </a>
+                <a href="simulations.html" class="nav-link">
+                    <i class="fas fa-play-circle"></i>
+                    <span>Simulaciones</span>
+                    <div class="nav-indicator"></div>
+                </a>
+                <a href="profile.html" class="nav-link nav-active">
+                    <i class="fas fa-user"></i>
+                    <span>Mi Perfil</span>
+                    <div class="nav-indicator"></div>
+                </a>
+            </div>
+
+            <!-- User Menu -->
+            <div class="user-menu">
+                <div class="user-avatar" id="currentUserAvatar">JP</div>
+                <div class="user-info">
+                    <div class="user-name" id="usernameNav">Juan Pérez</div>
+                    <div class="user-role" id="userTypeNav">Emprendedor</div>
+                </div>
+                <i class="fas fa-chevron-down dropdown-arrow"></i>
+                
+                <!-- Dropdown Menu -->
+                <div class="dropdown-menu">
+                    <a href="profile.html" class="dropdown-item">
+                        <i class="fas fa-user"></i> Mi Perfil
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-cog"></i> Configuración
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item logout">
+                        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenedor Principal -->
+    <div class="profile-container">
+        <!-- Header del Perfil -->
+        <div class="profile-header">
+            <div class="profile-hero">
+                <div class="profile-avatar-large">
+                    <div class="avatar-image" id="profileAvatarLarge">U</div>
+                    <button class="avatar-edit-btn" id="editAvatarBtn">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                    <input type="file" id="avatarUpload" accept="image/*" class="hidden">
+                </div>
+                
+                <div class="profile-info-hero">
+                    <h1 id="profileFullName">Nombre del Usuario</h1>
+                    <p class="profile-email" id="profileEmail">usuario@email.com</p>
+                    
+                    <div class="profile-meta">
+                        <div class="profile-badge">
+                            <i class="fas fa-crown"></i>
+                            <span id="userTypeBadge">Emprendedor</span>
+                        </div>
+                        <div class="profile-date">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span id="joinDate">01/01/2024</span>
+                        </div>
+                        <div class="profile-date">
+                            <i class="fas fa-clock"></i>
+                            <span id="lastLogin">Hoy</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="profile-edit-btn" id="editProfileMainBtn">
+                    <i class="fas fa-edit"></i> Editar Perfil
+                </button>
+            </div>
+        </div>
+
+        <!-- Grid del Contenido -->
+        <div class="profile-content-grid">
+            <!-- Tarjeta 1: Información Personal -->
+            <div class="profile-card">
+                <div class="card-header">
+                    <h3><i class="fas fa-info-circle"></i> Información Personal</h3>
+                    <button class="card-edit-btn" id="editPersonalBtn">
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                </div>
+                
+                <div class="card-body">
+                    <div class="info-item">
+                        <label><i class="fas fa-id-card"></i> ID de Usuario</label>
+                        <p id="userId">USER-001</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <label><i class="fas fa-user"></i> Nombre Completo</label>
+                        <p id="userFullName">Juan Pérez</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <label><i class="fas fa-envelope"></i> Email</label>
+                        <p id="userEmail">juan@email.com</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <label><i class="fas fa-phone"></i> Teléfono</label>
+                        <p id="userPhone">+51 999 888 777</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <label><i class="fas fa-map-marker-alt"></i> Ubicación</label>
+                        <p id="userLocation">Lima, Perú</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Estadísticas -->
+            <div class="profile-card">
+                <div class="card-header">
+                    <h3><i class="fas fa-chart-line"></i> Estadísticas</h3>
+                </div>
+                
+                <div class="card-body">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-icon success">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4 id="ideasCount">12</h4>
+                                <p>Ideas Generadas</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-icon warning">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4 id="reportsCount">8</h4>
+                                <p>Reportes Creados</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-icon info">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4 id="successRate">85%</h4>
+                                <p>Tasa de Éxito</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-day"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h4 id="accountAge">45</h4>
+                                <p>Días Activo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Seguridad -->
+            <div class="profile-card">
+                <div class="card-header">
+                    <h3><i class="fas fa-shield-alt"></i> Seguridad</h3>
+                </div>
+                
+                <div class="card-body">
+                    <div class="security-actions">
+                        <button class="security-btn" id="changePasswordBtn">
+                            <div class="btn-icon">
+                                <i class="fas fa-key"></i>
+                            </div>
+                            <div class="btn-content">
+                                <h4>Cambiar Contraseña</h4>
+                                <p>Actualiza tu contraseña regularmente</p>
+                            </div>
+                        </button>
+                        
+                        <button class="security-btn" id="twoFactorBtn">
+                            <div class="btn-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="btn-content">
+                                <h4>Autenticación 2FA</h4>
+                                <p>Añade una capa extra de seguridad</p>
+                            </div>
+                            <div class="btn-toggle">
+                                <div class="toggle-switch" id="twoFactorToggle">
+                                    <div class="toggle-slider"></div>
+                                </div>
+                            </div>
+                        </button>
+                        
+                        <button class="security-btn" id="sessionsBtn">
+                            <div class="btn-icon">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <div class="btn-content">
+                                <h4>Sesiones Activas</h4>
+                                <p>Gestiona tus dispositivos conectados</p>
+                            </div>
+                            <div class="btn-badge">
+                                <span class="badge" id="activeSessionsCount">2</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4: Preferencias -->
+            <div class="profile-card">
+                <div class="card-header">
+                    <h3><i class="fas fa-cog"></i> Preferencias</h3>
+                </div>
+                
+                <div class="card-body">
+                    <div class="preferences-list">
+                        <div class="preference-item">
+                            <label for="themeSelect">
+                                <i class="fas fa-palette"></i> Tema
+                            </label>
+                            <select id="themeSelect" class="form-select">
+                                <option value="light">Claro</option>
+                                <option value="dark">Oscuro</option>
+                                <option value="auto">Automático</option>
+                            </select>
+                        </div>
+                        
+                        <div class="preference-item">
+                            <label for="languageSelect">
+                                <i class="fas fa-language"></i> Idioma
+                            </label>
+                            <select id="languageSelect" class="form-select">
+                                <option value="es">Español</option>
+                                <option value="en">English</option>
+                            </select>
+                        </div>
+                        
+                        <div class="preference-item">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="emailNotifications" class="styled-checkbox" checked>
+                                <label for="emailNotifications">
+                                    <i class="fas fa-bell"></i> Notificaciones por Email
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="preference-item">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="reportAlerts" class="styled-checkbox" checked>
+                                <label for="reportAlerts">
+                                    <i class="fas fa-chart-line"></i> Alertas de Reportes
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 5: Información de Cuenta -->
+            <div class="profile-card">
+                <div class="card-header">
+                    <h3><i class="fas fa-user-circle"></i> Información de Cuenta</h3>
+                </div>
+                
+                <div class="card-body">
+                    <div class="account-info">
+                        <div class="info-row">
+                            <span class="info-label"><i class="fas fa-shield"></i> Estado de la Cuenta</span>
+                            <span class="info-value active" id="userStatus">
+                                <i class="fas fa-check-circle"></i> Activa
+                            </span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label"><i class="fas fa-user-tag"></i> Rol de Usuario</span>
+                            <span class="info-value" id="userRole">Usuario Premium</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label"><i class="fas fa-at"></i> Nombre de Usuario</span>
+                            <span class="info-value" id="userUsername">juanperez</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-actions">
+                        <button class="btn-danger" id="deleteAccountBtn">
+                            <i class="fas fa-trash-alt"></i> Eliminar Cuenta
+                        </button>
+                        <button class="btn-outline logout-btn">
+                            <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 6: Actividad Reciente -->
+            <div class="profile-card full-width">
+                <div class="card-header">
+                    <h3><i class="fas fa-history"></i> Actividad Reciente</h3>
+                </div>
+                
+                <div class="card-body">
+                    <div class="activity-list" id="recentActivity">
+                        <div class="activity-item">
+                            <i class="fas fa-lightbulb activity-icon success"></i>
+                            <div class="activity-content">
+                                <h4>Nueva idea generada</h4>
+                                <p>Aplicación móvil para emprendedores</p>
+                                <span class="activity-time">Hace 2 horas</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <i class="fas fa-file-alt activity-icon info"></i>
+                            <div class="activity-content">
+                                <h4>Reporte completado</h4>
+                                <p>Análisis de mercado - Café orgánico</p>
+                                <span class="activity-time">Ayer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Editar Perfil -->
+    <div id="editProfileModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-edit"></i> Editar Perfil</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="editProfileForm">
+                    <div class="input-group">
+                        <label for="editFullName">Nombre Completo</label>
+                        <input type="text" id="editFullName" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="editEmail">Email</label>
+                        <input type="email" id="editEmail" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="editPhone">Teléfono</label>
+                        <input type="tel" id="editPhone">
+                    </div>
+                    <div class="input-group">
+                        <label for="editLocation">Ubicación</label>
+                        <input type="text" id="editLocation">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary cancel-btn">Cancelar</button>
+                <button class="btn btn-primary save-btn">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Cambiar Contraseña -->
+    <div id="changePasswordModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-key"></i> Cambiar Contraseña</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="changePasswordForm">
+                    <div class="input-group">
+                        <label for="currentPassword">Contraseña Actual</label>
+                        <input type="password" id="currentPassword" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="newPassword">Nueva Contraseña</label>
+                        <input type="password" id="newPassword" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="confirmPassword">Confirmar Contraseña</label>
+                        <input type="password" id="confirmPassword" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary cancel-btn">Cancelar</button>
+                <button class="btn btn-primary save-btn">Actualizar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./assets/scripts/profile.js"></script>
+</body>
+</html>
